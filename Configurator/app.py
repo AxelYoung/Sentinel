@@ -281,11 +281,11 @@ def GenerateLayerButtons():
         layer = Button(root, text=list(keymaps.keys())[i], padx=20, pady=20, command=lambda x=list(keymaps.keys())[i]: GenerateKeyButtons(x))
         layer.grid(row=5, column=i, padx=10, pady=10)
         layerButtons.append(layer)
+        createLayerKey = Button(root, text="Create Layer Key", command=lambda a=list(keymaps.keys())[i]: CreateLayerKey(a), padx=20, pady=20)
+        createLayerKey.grid(row=6, column=i, padx=10, pady=10)
+        selectedLayerButtons[list(keymaps.keys())[i]] = createLayerKey
+        layerButtons.append(createLayerKey)
         if i > 0:
-            createLayerKey = Button(root, text="Create Layer Key", command=lambda a=list(keymaps.keys())[i]: CreateLayerKey(a), padx=20, pady=20)
-            createLayerKey.grid(row=6, column=i, padx=10, pady=10)
-            selectedLayerButtons[list(keymaps.keys())[i]] = createLayerKey
-            layerButtons.append(createLayerKey)
             delete = Button(root, text="Delete Layer", padx=20, pady=10, command=lambda x=list(keymaps.keys())[i]: DeleteLayer(x))
             delete.grid(row=7, column=i, padx=10, pady=5)
             layerButtons.append(delete)
